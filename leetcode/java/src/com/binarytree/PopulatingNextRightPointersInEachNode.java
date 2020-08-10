@@ -37,11 +37,42 @@ public class PopulatingNextRightPointersInEachNode {
     private Node connect(Node root) {
         if (root == null) return null;
 
+        Node node = recursive(root);
+        System.out.println("Recursive output : "  + node );
+
+        node = iterative(root);
+        System.out.println("Iterative output : "  + node );
+
+        return node;
+    }
+
+    private Node iterative(Node root){
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            Node next = null;
+            for(int i = 0; i < size; i++){
+                Node node = queue.remove();
+                node.next = next;
+                next = node;
+                if(node.right != null){
+                    queue.add(node.right);
+                }
+                if(node.left != null){
+                    queue.add(node.left);
+                }
+            }
+        }
+        return root;
+    }
+
+    private Node recursive(Node root){
         if( root.left == null) return root;
         root.left.next = root.right;
 
         if(root.next != null && root.next.left != null){
-           root.right.next  = root.next.left;
+            root.right.next  = root.next.left;
         }
 
 
@@ -83,6 +114,7 @@ public class PopulatingNextRightPointersInEachNode {
         node.left.right = new Node(5);
         node.right.left = new Node(6);
         node.right.left = new Node(7);
-        System.out.println("Recursive output : "  + obj.connect(node) );
+        obj.connect(node);
+
     }
 }
