@@ -1,27 +1,44 @@
 package com.strings;
 
-// Given two binary strings, return their sum (also a binary string).
+// Category : Easy
+//Given two binary strings, return their sum (also a binary string).
+//
 //        The input strings are both non-empty and contains only characters 1 or 0.
 //
-// Input: a = "11", b = "1"
-//        Output: "100"
+//        Example 1:
 //
-// Input: a = "1010", b = "1011"
-//        Output: "10101
-
+//        Input: a = "11", b = "1"
+//        Output: "100"
+//        Example 2:
+//
+//        Input: a = "1010", b = "1011"
+//        Output: "10101"
+//
+//
+//        Constraints:
+//
+//        Each string consists only of '0' or '1' characters.
+//        1 <= a.length, b.length <= 10^4
+//        Each string is either "0" or doesn't contain any leading zero.
 
 public class AddBinary {
 
     private String addBinary(String a, String b) {
-////////////////////////        Implementation 1   ///////////////////
-        // Use as radix 2 because it's binary
-//        int number0 = Integer.parseInt(a, 2);
-//        int number1 = Integer.parseInt(b, 2);
-//
-//        int sum = number0 + number1;
-//        return Integer.toBinaryString(sum);
+        String result = solution1(a,b);
+        result = solution2(a,b);
+        return result;
+    }
 
-////////////////////////        Implementation 2   ///////////////////
+    private String solution1(String a, String b){
+        // Use as radix 2 because it's binary
+        int number0 = Integer.parseInt(a, 2);
+        int number1 = Integer.parseInt(b, 2);
+
+        int sum = number0 + number1;
+        return Integer.toBinaryString(sum);
+    }
+
+    private String solution2(String a, String b){
         int len1 = a.length();
         int len2 = b.length();
         if ( len1 != len2){
