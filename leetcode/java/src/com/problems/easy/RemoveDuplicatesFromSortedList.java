@@ -1,5 +1,6 @@
 package com.problems.easy;
 
+// Category : Easy
 //Given a sorted linked list, delete all duplicates such that each element appear only once.
 //
 //        Example 1:
