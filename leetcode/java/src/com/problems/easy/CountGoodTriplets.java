@@ -32,6 +32,8 @@ package com.problems.easy;
 //        0 <= arr[i] <= 1000
 //        0 <= a, b, c <= 1000
 
+import java.util.Arrays;
+
 public class CountGoodTriplets {
     private int countGoodTriplets(int[] arr, int a, int b, int c) {
         int count = 0;
